@@ -1,0 +1,36 @@
+-- Create table
+create table MENU_USER
+(
+  user_id    VARCHAR2(8) not null,
+  menu_id    NUMBER(10) not null,
+  right_code NUMBER(1) not null
+)
+tablespace TS_INTRAWEB
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table MENU_USER
+  add constraint MENU_USER_PK primary key (MENU_ID, USER_ID)
+  using index 
+  tablespace TS_INTRAWEB
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+alter table MENU_USER
+  add constraint MENU_MENU_USER_FK1 foreign key (MENU_ID)
+  references MENU (MENU_ID);

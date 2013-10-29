@@ -1,0 +1,14 @@
+create or replace view view_employee as
+select
+    emp.id              id,               员工编号
+    emp.name            name,             姓名
+    emp.sex             sex,              性别
+    org.name            orgname           部门名称
+  from
+    pa_emp_employee       emp,            员工信息表
+    pa_org_organization   org,            组织机构表
+    pa_emp_sort           empsort          员工顺序表 
+  where
+    org.abbr (+)= emp.org and
+    empsort.id (+)=emp.id
+  ORDER BY empsort.sort,emp.name;

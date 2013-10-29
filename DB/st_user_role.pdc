@@ -1,0 +1,38 @@
+-- Create table
+create table ST_USER_ROLE
+(
+  id           NUMBER(8) not null,
+  userid       VARCHAR2(8) not null,
+  roleid       NUMBER(8),
+  proxy_userid VARCHAR2(8),
+  fromdate     DATE,
+  todate       DATE
+)
+tablespace TS_NORMAL
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ST_USER_ROLE
+  add constraint PK_ST_USER_ROLE primary key (ID)
+  using index 
+  tablespace TS_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select, update on ST_USER_ROLE to LOGIN;

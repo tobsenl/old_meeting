@@ -1,0 +1,21 @@
+-- Create table
+create table MEETINGROOM
+(
+  id       NUMBER(10) not null,
+  building VARCHAR2(512),
+  room     VARCHAR2(512),
+  capacity NUMBER(4),
+  remark   VARCHAR2(1024),
+  deleted  VARCHAR2(1)
+)
+tablespace TS_INTRAWEB
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 1
+    next 1
+    minextents 1
+    maxextents unlimited
+  );

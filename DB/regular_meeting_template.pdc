@@ -1,0 +1,37 @@
+-- Create table
+create table REGULAR_MEETING_TEMPLATE
+(
+  id                NUMBER(10) not null,
+  building          VARCHAR2(50),
+  starttime         DATE,
+  endtime           DATE,
+  content           VARCHAR2(400),
+  leader            VARCHAR2(300),
+  depart            VARCHAR2(400),
+  remark            VARCHAR2(500),
+  committime        DATE,
+  commiterid        VARCHAR2(8),
+  commitdepart      VARCHAR2(30),
+  approverid        VARCHAR2(8),
+  alloterid         VARCHAR2(8),
+  presider          VARCHAR2(50),
+  grade             VARCHAR2(1),
+  scheduledperiod   VARCHAR2(2),
+  daysbeforetrigger VARCHAR2(2),
+  lasttriggerdate   DATE,
+  isautotrigger     VARCHAR2(1),
+  room              VARCHAR2(20),
+  capacity          VARCHAR2(4),
+  meetingroomid     NUMBER(10) not null
+)
+tablespace TS_INTRAWEB
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16
+    next 8
+    minextents 1
+    maxextents unlimited
+  );

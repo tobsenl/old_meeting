@@ -1,0 +1,35 @@
+-- Create table
+create table ST_RIGHTUSER
+(
+  userid VARCHAR2(8) not null,
+  passwd VARCHAR2(40) not null
+)
+tablespace TS_NORMAL
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    next 1
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index IDX_ST_RIGHTUSER_USERID on ST_RIGHTUSER (USERID)
+  tablespace TS_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table ST_RIGHTUSER
+  add primary key (USERID);
+-- Grant/Revoke object privileges 
+grant select on ST_RIGHTUSER to LOGIN;

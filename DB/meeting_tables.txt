@@ -1,0 +1,9 @@
+meeting
+meetingroom
+regular_meeting_template
+st_rightuser
+st_function
+st_user_role
+st_role
+menu_user
+view_employee
